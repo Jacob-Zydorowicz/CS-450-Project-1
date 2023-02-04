@@ -24,6 +24,17 @@ public class Projectile : MonoBehaviour
     #endregion
 
     #region Functions
+    private void Reset()
+    {
+        var rigidbody = GetComponent<Rigidbody2D>();
+
+        // Initializes all projectiles to have the same rigidbody settings
+        rigidbody.gravityScale = 0.0f;
+        rigidbody.angularDrag = 0.0f;
+        rigidbody.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+        rigidbody.sleepMode = RigidbodySleepMode2D.NeverSleep;
+    }
+
     /// <summary>
     /// Handles initilization of components and other fields before anything else.
     /// </summary>
