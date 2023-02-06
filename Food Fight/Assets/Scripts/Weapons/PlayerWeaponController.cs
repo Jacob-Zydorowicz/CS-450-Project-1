@@ -19,7 +19,7 @@ public class PlayerWeaponController : MonoBehaviour
 
     [SerializeField] Animator an;
     [SerializeField] float verticalThreshold = 0.5f;
-    [SerializeField] string fire, moveHorizontal, moveUp, moveDown;
+    [SerializeField] string fire, direction, firing;
 
     #region Input Keycode
     #region Equip
@@ -83,6 +83,8 @@ public class PlayerWeaponController : MonoBehaviour
         #region Main
         if (Input.GetKeyDown(mainWeaponActionKeycode))
         {
+            an.SetTrigger(fire);
+            an.SetBool(firing, true);
             MainWeaponActionDown();
         }
 
@@ -156,33 +158,33 @@ public class PlayerWeaponController : MonoBehaviour
     // TODO
     private void AimWeapon()
     {
-        Turn(aimDir);
-        an.SetTrigger(fire);
+        Turn(aimDir.normalized);
         weapons[equippedWeaponIndex].Aim(aimDir);
     }
 
     private void Turn(Vector2 direction)
     {
+        Debug.Log("("+ direction.x + "," + direction.y + ")");
         //If looking up
         if(direction.y > verticalThreshold)
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
-            an.SetFloat(moveUp, 0);
+            an.SetInteger(this.direction, 0);
         }
         //If looking down
         else if (direction.y < -verticalThreshold)
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
-            an.SetFloat(moveDown, 1);
+            an.SetInteger(this.direction, 1);
         }
         //If looking left or right
         else
         {
-            an.SetFloat(moveHorizontal, 2);
+            an.SetInteger(this.direction, 2);
             //left
             if(direction.x < 0)
             {
-                transform.rotation = Quaternion.Euler(0, 0, 180);
+                transform.rotation = Quaternion.Euler(0, 180, 0);
             }
             //right
             else
@@ -190,6 +192,11 @@ public class PlayerWeaponController : MonoBehaviour
                 transform.rotation = Quaternion.Euler(0, 0, 0);
             }
         }
+    }
+
+    public void AttackEnd()
+    {
+        an.SetBool(firing, false);
     }
     #endregion
 }
