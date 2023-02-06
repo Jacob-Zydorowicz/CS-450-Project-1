@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] float speed = 10;
     private float horizontalMovement = 0, verticalMovement = 0;
+    [SerializeField] string moving;
+    [SerializeField] Animator an;
 
     // Start is called before the first frame update
     void Start()
@@ -41,6 +43,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move()
     {
+        if (verticalMovement == 0 && horizontalMovement == 0) an.SetBool(moving, false);
+        else an.SetBool(moving, true);
         transform.Translate((Vector2.up * verticalMovement + Vector2.right * horizontalMovement) * speed * Time.deltaTime);
     }
 }

@@ -17,6 +17,10 @@ public class PlayerWeaponController : MonoBehaviour
 
     private Vector2 aimDir;
 
+    [SerializeField] Animator an;
+    [SerializeField] float verticalThreshold = 0.5f;
+    [SerializeField] string fire, moveHorizontal, moveUp, moveDown;
+
     #region Input Keycode
     #region Equip
     [Tooltip("Equips the weapon in the first wepaon slot")]
@@ -42,7 +46,7 @@ public class PlayerWeaponController : MonoBehaviour
     /// </summary>
     private void Awake()
     {
-        
+       
     }
 
     /// <summary>
@@ -152,8 +156,40 @@ public class PlayerWeaponController : MonoBehaviour
     // TODO
     private void AimWeapon()
     {
-        transform.up = aimDir;
+        Turn(aimDir);
+        an.SetTrigger(fire);
         weapons[equippedWeaponIndex].Aim(aimDir);
+    }
+
+    private void Turn(Vector2 direction)
+    {
+        //If looking up
+        if(direction.y > verticalThreshold)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            an.SetFloat(moveUp, 0);
+        }
+        //If looking down
+        else if (direction.y < -verticalThreshold)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            an.SetFloat(moveDown, 1);
+        }
+        //If looking left or right
+        else
+        {
+            an.SetFloat(moveHorizontal, 2);
+            //left
+            if(direction.x < 0)
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 180);
+            }
+            //right
+            else
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+        }
     }
     #endregion
 }
