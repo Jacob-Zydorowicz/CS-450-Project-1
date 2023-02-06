@@ -201,6 +201,7 @@ GameObject:
   - component: {fileID: 424531567}
   - component: {fileID: 424531569}
   - component: {fileID: 424531570}
+  - component: {fileID: 424531571}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -249,7 +250,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  m_Sprite: {fileID: -1153633824, guid: 8e96acd33e884b940b9614d44391305b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -269,7 +270,7 @@ Transform:
   m_GameObject: {fileID: 424531566}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1375928534}
@@ -292,6 +293,11 @@ MonoBehaviour:
   weapons:
   - {fileID: 1375928536}
   - {fileID: 203600352}
+  an: {fileID: 424531571}
+  verticalThreshold: 0.5
+  fire: Fire
+  direction: Direction
+  firing: Firing
   equipWeapon1Keycode: 49
   equipWeapon2Keycode: 50
   mainWeaponActionKeycode: 323
@@ -309,6 +315,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  moving: Moving
+  an: {fileID: 424531571}
+--- !u!95 &424531571
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424531566}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fd703c5806d7ea245a0d76278033c9ff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
