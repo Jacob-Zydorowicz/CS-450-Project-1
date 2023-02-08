@@ -1,6 +1,6 @@
 /*
  * (Jacob Welch)
- * (WeaponAction)
+ * (BoomerangProjectile)
  * (Food Fight)
  * (Description: )
  */
@@ -8,18 +8,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class WeaponAction : MonoBehaviour
+public class BoomerangProjectile : Projectile
 {
     #region Fields
-    protected Weapon weapon;
+
     #endregion
 
     #region Functions
-    protected virtual void Awake()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        weapon = GetComponent<Weapon>();
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            //weapon.
+        }
     }
-
-    public abstract void PerformAction();
     #endregion
 }

@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(ProjectileMovementPattern))]
 public class Projectile : MonoBehaviour
 {
     #region Fields
@@ -18,9 +19,8 @@ public class Projectile : MonoBehaviour
 
     private float range = 0;
 
-    private Vector2 startingPosition;
-
-    private Rigidbody2D rigidbody2d;
+    protected WeaponAction weapon;
+    private ProjectileMovementPattern movementPattern;
     #endregion
 
     #region Functions
@@ -35,18 +35,11 @@ public class Projectile : MonoBehaviour
         rigidbody.sleepMode = RigidbodySleepMode2D.NeverSleep;
     }
 
-    /// <summary>
-    /// Handles initilization of components and other fields before anything else.
-    /// </summary>
-    private void Awake()
+    public void Initialize(WeaponAction weapon)
     {
-        rigidbody2d = GetComponent<Rigidbody2D>();
-        startingPosition = transform.position;
-    }
-
-    public void Initialize(float range)
-    {
-        this.range = range;
+        range = weapon.Range;
+        this.weapon = weapon;
+        movementPattern = GetComponent<ProjectileMovementPattern>();
     }
 
     private void FixedUpdate()
@@ -56,17 +49,18 @@ public class Projectile : MonoBehaviour
 
     protected virtual void MovementPattern()
     {
-        rigidbody2d.MovePosition(rigidbody2d.position + (Vector2)(transform.right * Time.fixedDeltaTime * speed));
-
-        if(Vector2.Distance(startingPosition, transform.position) > range)
-        {
-            MaxRangeReached();
-        }
+        movementPattern.MovementTick(speed, range);
     }
 
-    protected virtual void MaxRangeReached()
+    protected virtual IEnumerator DestructionEvent()
     {
         Destroy(gameObject);
+        yield return null;
+    }
+
+    public virtual void MaxRangeReached()
+    {
+        StartCoroutine(DestructionEvent());
     }
     #endregion
 }

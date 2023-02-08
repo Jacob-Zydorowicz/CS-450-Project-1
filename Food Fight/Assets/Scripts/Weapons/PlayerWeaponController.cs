@@ -38,14 +38,6 @@ public class PlayerWeaponController : MonoBehaviour
 
     #region Functions
     /// <summary>
-    /// Handles initilization of components and other fields before anything else.
-    /// </summary>
-    private void Awake()
-    {
-        
-    }
-
-    /// <summary>
     /// Calls for an event to take place once per frame after camera ticks.
     /// </summary>
     private void LateUpdate()
@@ -145,6 +137,11 @@ public class PlayerWeaponController : MonoBehaviour
         if (weapons.Length <= weaponIndex || weapons[weaponIndex] == null) return;
 
         equippedWeaponIndex = weaponIndex;
+
+        foreach(Weapon weapon in weapons)
+        {
+            weapon.SwapToFrom(weapon == weapons[weaponIndex]);
+        }
     }
     #endregion
     #endregion

@@ -18,8 +18,16 @@ public class ProjectileWeaponAction : WeaponAction
     #region Functions
     public override void PerformAction()
     {
-        var spawnedProjectile = Instantiate(projectile, transform.position, transform.rotation);
-        spawnedProjectile.GetComponent<Projectile>().Initialize(weapon.Range);
+        base.PerformAction();
+
+        // Spawns and initializes the projectile
+        var spawnedProjectile = Instantiate(projectile, transform.position, transform.rotation*Spread());
+        spawnedProjectile.GetComponent<Projectile>().Initialize(this);
+    }
+
+    private Quaternion Spread()
+    {
+        return Quaternion.Euler(new Vector3(0, 0, Random.Range(-spread, spread)));
     }
     #endregion
 }
