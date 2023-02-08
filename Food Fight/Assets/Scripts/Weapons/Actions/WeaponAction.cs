@@ -25,6 +25,13 @@ public abstract class WeaponAction : MonoBehaviour
     [Tooltip("The distance that the projectile can travel")]
     [SerializeField] protected float spread = 0.0f;
     #endregion
+    string fire = "Fire";
+    string firing = "Firing";
+    private Animator an;
+    private void Start()
+    {
+        an = transform.parent.parent.gameObject.GetComponent<Animator>();
+    }
 
     #region Functions
     protected virtual void Awake()
@@ -34,6 +41,8 @@ public abstract class WeaponAction : MonoBehaviour
 
     public virtual void PerformAction()
     {
+        an.SetBool(firing, true);
+        an.SetTrigger(fire);
         weapon.UseAmmo(AmmoPerShot);
     }
     #endregion

@@ -83,8 +83,8 @@ public class PlayerWeaponController : MonoBehaviour
         #region Main
         if (Input.GetKeyDown(mainWeaponActionKeycode))
         {
-            an.SetTrigger(fire);
-            an.SetBool(firing, true);
+            //an.SetTrigger(fire);
+            //an.SetBool(firing, true);
             MainWeaponActionDown();
         }
 
@@ -169,7 +169,7 @@ public class PlayerWeaponController : MonoBehaviour
 
     private void Turn(Vector2 direction)
     {
-        Debug.Log("("+ direction.x + "," + direction.y + ")");
+        //Debug.Log("("+ direction.x + "," + direction.y + ")");
         //If looking up
         if(direction.y > verticalThreshold)
         {

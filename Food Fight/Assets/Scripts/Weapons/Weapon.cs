@@ -14,6 +14,15 @@ public class Weapon : MonoBehaviour
     private WeaponRoutine mainWeaponRoutine;
     private WeaponRoutine altWeaponRoutine;
 
+    //Set up animation requirements
+    /*private Animator an;
+    string fire = "Fire";
+    string firing = "Firing";
+    private void Start()
+    {
+        an = transform.parent.gameObject.GetComponent<Animator>();
+    }*/
+
     // TODO
     #region Ammo
     [Header("Ammo")]
@@ -195,6 +204,7 @@ public class Weapon : MonoBehaviour
         if (clipSize != 0)
         {
             CurrentAmmo -= ammoToUse;
+            
 
             if (CurrentAmmo == 0) StartCoroutine(Reload());
         }
