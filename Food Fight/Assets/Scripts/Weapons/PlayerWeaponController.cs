@@ -17,6 +17,10 @@ public class PlayerWeaponController : MonoBehaviour
 
     private Vector2 aimDir;
 
+    [SerializeField] Animator an;
+    [SerializeField] float verticalThreshold = 0.5f;
+    [SerializeField] string fire, direction, firing;
+
     #region Input Keycode
     #region Equip
     [Tooltip("Equips the weapon in the first wepaon slot")]
@@ -37,6 +41,14 @@ public class PlayerWeaponController : MonoBehaviour
     #endregion
 
     #region Functions
+    /// <summary>
+    /// Handles initilization of components and other fields before anything else.
+    /// </summary>
+    private void Awake()
+    {
+       
+    }
+
     /// <summary>
     /// Calls for an event to take place once per frame after camera ticks.
     /// </summary>
@@ -71,6 +83,8 @@ public class PlayerWeaponController : MonoBehaviour
         #region Main
         if (Input.GetKeyDown(mainWeaponActionKeycode))
         {
+            an.SetTrigger(fire);
+            an.SetBool(firing, true);
             MainWeaponActionDown();
         }
 
@@ -149,8 +163,45 @@ public class PlayerWeaponController : MonoBehaviour
     // TODO
     private void AimWeapon()
     {
-        transform.up = aimDir;
+        Turn(aimDir.normalized);
         weapons[equippedWeaponIndex].Aim(aimDir);
+    }
+
+    private void Turn(Vector2 direction)
+    {
+        Debug.Log("("+ direction.x + "," + direction.y + ")");
+        //If looking up
+        if(direction.y > verticalThreshold)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            an.SetInteger(this.direction, 0);
+        }
+        //If looking down
+        else if (direction.y < -verticalThreshold)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
+            an.SetInteger(this.direction, 1);
+        }
+        //If looking left or right
+        else
+        {
+            an.SetInteger(this.direction, 2);
+            //left
+            if(direction.x < 0)
+            {
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
+            //right
+            else
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
+        }
+    }
+
+    public void AttackEnd()
+    {
+        an.SetBool(firing, false);
     }
     #endregion
 }
