@@ -25021,6 +25021,7 @@ GameObject:
   - component: {fileID: 424531571}
   - component: {fileID: 424531573}
   - component: {fileID: 424531574}
+  - component: {fileID: 424531575}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -25193,6 +25194,22 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.14, y: 0.14}
   m_Direction: 0
+--- !u!114 &424531575
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 424531566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f2a95456a57db047a251193bf7b35ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  HealthChangeEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
