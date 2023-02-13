@@ -17,6 +17,10 @@ public class Projectile : MonoBehaviour
     [Tooltip("The speed of the projectile")]
     [SerializeField] private float speed = 5;
 
+    [Range(0.0f, 50.0f)]
+    [Tooltip("The speed of the projectile")]
+    [SerializeField] private int damage = 1;
+
     private float range = 0;
 
     protected WeaponAction weapon;
@@ -61,6 +65,15 @@ public class Projectile : MonoBehaviour
     public virtual void MaxRangeReached()
     {
         StartCoroutine(DestructionEvent());
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.TryGetComponent(out Damageable damageable))
+        {
+            damageable.UpdateHealth(damage);
+            StartCoroutine(DestructionEvent());
+        }
     }
     #endregion
 }
