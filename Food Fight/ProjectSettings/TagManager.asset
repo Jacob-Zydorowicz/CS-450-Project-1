@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Destructable
+  - Projectiles
   layers:
   - Default
   - TransparentFX
@@ -38,6 +40,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 303744227
+    locked: 0
+  - name: Obstacles
+    uniqueID: 1814591553
+    locked: 0
+  - name: Main
+    uniqueID: 2332306423
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Destructables
+    uniqueID: 4226727055
     locked: 0
