@@ -138,6 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  damage: 5
   numberOfExplodedProjectiles: 25
   amountBeforeSpacing: 10
   spacingDelay: 0.025
