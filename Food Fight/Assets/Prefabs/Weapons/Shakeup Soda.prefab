@@ -73,7 +73,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1579064923377768719}
   - component: {fileID: 1579064923377768705}
-  - component: {fileID: 1579064923377768718}
+  - component: {fileID: 8561435133585266439}
   m_Layer: 0
   m_Name: Shake Up Blast
   m_TagString: Untagged
@@ -115,7 +115,7 @@ MonoBehaviour:
   mustFullyCharge: 1
   delayUponRelease: 0.25
   continueChargeUponRelease: 0
---- !u!114 &1579064923377768718
+--- !u!114 &8561435133585266439
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,13 +124,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1579064923377768716}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c97e6f9803f9f34b8b30d4f2ae46566, type: 3}
+  m_Script: {fileID: 11500000, guid: c9a0f5f9a0cf2044a91ac9340ca7ab7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <Range>k__BackingField: 10
   AmmoPerShot: 1
   spread: 0
-  projectile: {fileID: 8064598491234256359, guid: a2d3637d269bd4b4f9a04e6ac483cb27, type: 3}
 --- !u!1 &1579064923450513516
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,7 +139,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1579064923450513519}
-  - component: {fileID: 1579064923450513505}
   - component: {fileID: 1579064923450513518}
   m_Layer: 0
   m_Name: Shakeup Soda
@@ -166,25 +164,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1579064923450513505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1579064923450513516}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a18d7e23c00a02143b5476a5af582d67, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timeBetweenShots: 0.5
-  chargeTime: 0.8
-  isAutomaticRelease: 1
-  timeBeforeAutomaticRelease: 0.75
-  mustFullyCharge: 1
-  delayUponRelease: 0.25
-  continueChargeUponRelease: 0
 --- !u!114 &1579064923450513518
 MonoBehaviour:
   m_ObjectHideFlags: 0

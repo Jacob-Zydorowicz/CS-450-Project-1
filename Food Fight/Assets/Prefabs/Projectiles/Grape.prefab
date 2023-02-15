@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1554326542275475689}
   - component: {fileID: 3975125949973333428}
   - component: {fileID: 905227225585397526}
-  - component: {fileID: 1470615887237578414}
   - component: {fileID: 2353208583108687238}
+  - component: {fileID: 1470615887237578414}
   m_Layer: 0
   m_Name: Grape
   m_TagString: Projectiles
@@ -118,6 +118,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   damage: 5
+--- !u!114 &2353208583108687238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8064598491234256359}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716e1d7b59f22c54da3405535d69f573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &1470615887237578414
 Rigidbody2D:
   serializedVersion: 4
@@ -139,15 +151,3 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!114 &2353208583108687238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8064598491234256359}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 716e1d7b59f22c54da3405535d69f573, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

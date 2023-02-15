@@ -24,10 +24,5 @@ public class ProjectileWeaponAction : WeaponAction
         var spawnedProjectile = Instantiate(projectile, transform.position, transform.rotation*Spread());
         spawnedProjectile.GetComponent<Projectile>().Initialize(this);
     }
-
-    private Quaternion Spread()
-    {
-        return Quaternion.Euler(new Vector3(0, 0, Random.Range(-spread, spread)));
-    }
     #endregion
 }

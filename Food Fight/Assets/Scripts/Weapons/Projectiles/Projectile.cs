@@ -13,6 +13,8 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     #region Fields
+    private string ignoreTag = "Player";
+
     [Range(0.0f, 50.0f)]
     [Tooltip("The speed of the projectile")]
     [SerializeField] private float speed = 5;
@@ -42,6 +44,7 @@ public class Projectile : MonoBehaviour
     public void Initialize(WeaponAction weapon)
     {
         range = weapon.Range;
+        damage = weapon.Damage;
         this.weapon = weapon;
         movementPattern = GetComponent<ProjectileMovementPattern>();
     }
@@ -67,13 +70,18 @@ public class Projectile : MonoBehaviour
         StartCoroutine(DestructionEvent());
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.TryGetComponent(out Damageable damageable))
+        if(!ShouldIgnore(collision.gameObject) && collision.gameObject.TryGetComponent(out Damageable damageable))
         {
             damageable.UpdateHealth(damage);
             StartCoroutine(DestructionEvent());
         }
+    }
+
+    protected bool ShouldIgnore(GameObject obj)
+    {
+        return obj.CompareTag(ignoreTag);
     }
     #endregion
 }

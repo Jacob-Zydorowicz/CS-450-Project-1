@@ -14,15 +14,6 @@ public class Weapon : MonoBehaviour
     private WeaponRoutine mainWeaponRoutine;
     private WeaponRoutine altWeaponRoutine;
 
-    //Set up animation requirements
-    /*private Animator an;
-    string fire = "Fire";
-    string firing = "Firing";
-    private void Start()
-    {
-        an = transform.parent.gameObject.GetComponent<Animator>();
-    }*/
-
     // TODO
     #region Ammo
     [Header("Ammo")]
@@ -105,12 +96,6 @@ public class Weapon : MonoBehaviour
     public void Aim(Vector2 aimDir)
     {
         transform.right = aimDir;
-        ShowAim();
-    }
-
-    protected virtual void ShowAim()
-    {
-
     }
     #endregion
 

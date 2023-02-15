@@ -31,7 +31,7 @@ public class ChargeBarHandler : MonoBehaviour
     public static void UpdateFill(float currentFill)
     {
         instance.ChargeBarImage.fillAmount = currentFill;
-        instance.gameObject.SetActive(currentFill != 0);
+        instance.transform.parent.gameObject.SetActive(currentFill != 0);
     }
     #endregion
 }
