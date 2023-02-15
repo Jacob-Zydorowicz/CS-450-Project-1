@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Destructable
   - Projectiles
+  - EnemyText
+  - WaveText
+  - AmmoText
+  - WeaponText
+  - HealthText
   layers:
   - Default
   - TransparentFX
@@ -54,4 +59,7 @@ TagManager:
     locked: 0
   - name: Destructables
     uniqueID: 4226727055
+    locked: 0
+  - name: Foreground
+    uniqueID: 3420150043
     locked: 0

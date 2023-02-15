@@ -12,11 +12,12 @@ public class PlayerMovement : MonoBehaviour
     private float horizontalMovement = 0, verticalMovement = 0;
     [SerializeField] string moving;
     [SerializeField] Animator an;
+    Rigidbody2D rb;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -45,6 +46,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (verticalMovement == 0 && horizontalMovement == 0) an.SetBool(moving, false);
         else an.SetBool(moving, true);
-        transform.Translate((transform.up * verticalMovement + transform.right * horizontalMovement) * speed * Time.deltaTime);
+        //transform.Translate((transform.up * verticalMovement + transform.right * horizontalMovement) * speed * Time.deltaTime);
+        rb.velocity = (transform.up * verticalMovement + transform.right * horizontalMovement) * speed;
+        rb.velocity = Vector2.ClampMagnitude(rb.velocity, speed);
     }
 }
