@@ -13,6 +13,11 @@ public class Enemy : MonoBehaviour
 
     private float distance;
 
+    //public GameObject projectile;
+    //public Transform projectilePos;
+
+    //private float timer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +28,26 @@ public class Enemy : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        Movement();
+
+        //timer += Time.deltaTime;
+
+        //float dist = Vector2.Distance(transform.position, player.transform.position);
+
+        //if (dist < 10)
+        //{
+        //    timer += Time.deltaTime;
+
+        //    if (timer > 2)
+        //    {
+        //        timer = 0;
+        //        Shoot();
+        //    }
+        //}
+    }
+
+    public void Movement()
     {
         distance = Vector2.Distance(transform.position, player.transform.position);
         Vector2 direction = player.transform.position - transform.position;
@@ -35,4 +60,9 @@ public class Enemy : MonoBehaviour
             transform.rotation = Quaternion.Euler(Vector3.forward * angle);
         }
     }
+
+    //public void Shoot()
+    //{
+    //    Instantiate(projectile, projectilePos.position, Quaternion.identity);
+    //}
 }
