@@ -13,10 +13,13 @@ public class Enemy : MonoBehaviour
 
     private float distance;
 
-    //public GameObject projectile;
-    //public Transform projectilePos;
+    public float lineOfSite;
+    public float shootingRange;
+    public float fireRate = 1f;
+    private float nextFireTime;
 
-    //private float timer;
+    public GameObject projectile;
+    public GameObject projectileParent;
 
     // Start is called before the first frame update
     void Start()
@@ -24,27 +27,14 @@ public class Enemy : MonoBehaviour
         health = 10;
         damage = 10;
         speed = 1;
+        lineOfSite = 4;
+        shootingRange = 2;
     }
 
     // Update is called once per frame
     void Update()
     {
         Movement();
-
-        //timer += Time.deltaTime;
-
-        //float dist = Vector2.Distance(transform.position, player.transform.position);
-
-        //if (dist < 10)
-        //{
-        //    timer += Time.deltaTime;
-
-        //    if (timer > 2)
-        //    {
-        //        timer = 0;
-        //        Shoot();
-        //    }
-        //}
     }
 
     public void Movement()
@@ -54,15 +44,15 @@ public class Enemy : MonoBehaviour
         direction.Normalize();
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-        if (distance < 4)
+        if (distance < lineOfSite && distance > shootingRange)
         {
             transform.position = Vector2.MoveTowards(this.transform.position, player.transform.position, speed * Time.deltaTime);
             transform.rotation = Quaternion.Euler(Vector3.forward * angle);
         }
+        else if (distance <= shootingRange && nextFireTime < Time.time)
+        {
+            Instantiate(projectile, projectileParent.transform.position, Quaternion.identity);
+            nextFireTime = Time.time + fireRate;
+        }
     }
-
-    //public void Shoot()
-    //{
-    //    Instantiate(projectile, projectilePos.position, Quaternion.identity);
-    //}
 }
