@@ -15,11 +15,15 @@ public class Enemy : MonoBehaviour
 
     public float lineOfSite;
     public float shootingRange;
+
     public float fireRate = 1f;
     private float nextFireTime;
 
+    //private float timeBetweenShots;
+    //public float startTimeBetweenShots;
+
     public GameObject projectile;
-    public GameObject projectileParent;
+    //public GameObject projectileParent;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +33,8 @@ public class Enemy : MonoBehaviour
         speed = 1;
         lineOfSite = 4;
         shootingRange = 2;
+
+        //timeBetweenShots = startTimeBetweenShots;
     }
 
     // Update is called once per frame
@@ -51,8 +57,18 @@ public class Enemy : MonoBehaviour
         }
         else if (distance <= shootingRange && nextFireTime < Time.time)
         {
-            Instantiate(projectile, projectileParent.transform.position, Quaternion.identity);
+            Instantiate(projectile, /*projectileParent.*/transform.position, Quaternion.identity);
             nextFireTime = Time.time + fireRate;
         }
+
+        //if (timeBetweenShots < 0 && distance <= shootingRange)
+        //{
+        //    Instantiate(projectile, transform.position, Quaternion.identity);
+        //    timeBetweenShots = Time.time + fireRate;
+        //}
+        //else
+        //{
+        //    timeBetweenShots -= Time.deltaTime;
+        //}
     }
 }
