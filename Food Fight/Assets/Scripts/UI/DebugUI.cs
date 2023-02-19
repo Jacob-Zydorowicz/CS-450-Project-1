@@ -9,7 +9,7 @@ public class DebugUI : MonoBehaviour
     void Start()
     {
         gs = FindObjectOfType<GameSubject>();
-        gs.UpdateHealth(100);
+        gs.UpdateHealth(100, 100);
         gs.UpdateWave(1);
         gs.UpdateEnemies(10);
         gs.UpdateWeapon("Grape Shot");

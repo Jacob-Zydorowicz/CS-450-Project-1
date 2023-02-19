@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : Damageable
 {
-
-    public float health;
     public float damage;
     public float speed;
 
@@ -24,7 +22,6 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = 10;
         damage = 10;
         speed = 1;
         lineOfSite = 4;
@@ -51,6 +48,8 @@ public class Enemy : MonoBehaviour
         }
         else if (distance <= shootingRange && nextFireTime < Time.time)
         {
+            if (projectileParent == null) return;
+
             Instantiate(projectile, projectileParent.transform.position, Quaternion.identity);
             nextFireTime = Time.time + fireRate;
         }

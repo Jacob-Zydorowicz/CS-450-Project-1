@@ -7,9 +7,11 @@ public class GameSubject : MonoBehaviour, Subject
     List<Observer> observers;
     int health, wave, enemyCount, bulletCount;
     string currentWeapon;
+    public static GameSubject sceneInstance;
 
     private void Awake()
     {
+        sceneInstance = this;
         observers = new List<Observer>();
     }
     public void Notify()
@@ -32,33 +34,33 @@ public class GameSubject : MonoBehaviour, Subject
         Notify();
     }
 
-    public void UpdateHealth(int temp)
+    public void UpdateHealth(int currentHealth, int maxHealth)
     {
-        health = temp;
+        health = currentHealth;
         Notify();
     }
 
-    public void UpdateEnemies(int temp)
+    public void UpdateEnemies(int currentEnemies)
     {
-        enemyCount = temp;
+        enemyCount = currentEnemies;
         Notify();
     }
 
-    public void UpdateWave(int temp)
+    public void UpdateWave(int currentWave)
     {
-        wave = temp;
+        wave = currentWave;
         Notify();
     }
 
-    public void UpdateAmmo(int temp)
+    public void UpdateAmmo(int currentAmmo)
     {
-        bulletCount = temp;
+        bulletCount = currentAmmo;
         Notify();
     }
 
-    public void UpdateWeapon(string temp)
+    public void UpdateWeapon(string currentWeapon)
     {
-        currentWeapon = temp;
+        this.currentWeapon = currentWeapon;
         Notify();
     }
 

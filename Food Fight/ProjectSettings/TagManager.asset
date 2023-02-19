@@ -10,6 +10,7 @@ TagManager:
   - EnemyText
   - HealthText
   - AmmoText
+  - Destructable
   layers:
   - Default
   - TransparentFX
@@ -58,4 +59,7 @@ TagManager:
     locked: 0
   - name: Items
     uniqueID: 157929525
+    locked: 0
+  - name: Projectiles
+    uniqueID: 3690239361
     locked: 0
