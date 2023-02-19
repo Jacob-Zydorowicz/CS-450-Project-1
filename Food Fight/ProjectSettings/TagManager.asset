@@ -5,20 +5,16 @@ TagManager:
   serializedVersion: 2
   tags:
   - Projectiles
-<<<<<<< Updated upstream
-  - EnemyText
-  - WaveText
-  - AmmoText
   - WeaponText
+  - WaveText
+  - EnemyText
   - HealthText
-=======
-  - destructible
->>>>>>> Stashed changes
+  - AmmoText
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Enemy
+  - 
   - Water
   - UI
   - 
@@ -49,25 +45,17 @@ TagManager:
   - 
   m_SortingLayers:
   - name: Background
-    uniqueID: 303744227
+    uniqueID: 4047097199
     locked: 0
   - name: Obstacles
-    uniqueID: 1814591553
-    locked: 0
-  - name: Main
-    uniqueID: 2332306423
+    uniqueID: 2584129857
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Destructables
-    uniqueID: 4226727055
+  - name: Main
+    uniqueID: 704654711
     locked: 0
-<<<<<<< Updated upstream
-  - name: Foreground
-    uniqueID: 3420150043
-=======
   - name: Items
-    uniqueID: 1548228873
->>>>>>> Stashed changes
+    uniqueID: 157929525
     locked: 0
