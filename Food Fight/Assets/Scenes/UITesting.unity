@@ -268,7 +268,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 303744227
-  m_SortingLayer: -3
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -25068,7 +25068,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1962660873
-  m_SortingLayer: -1
+  m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: -1153633824, guid: 8e96acd33e884b940b9614d44391305b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -25565,7 +25565,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -68240241
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -26374,7 +26374,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1814591553
-  m_SortingLayer: -2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -34298,6 +34298,11 @@ MonoBehaviour:
   damage: 0
   speed: 0
   player: {fileID: 424531566}
+  lineOfSite: 0
+  shootingRange: 0
+  fireRate: 1
+  projectile: {fileID: 0}
+  projectileParent: {fileID: 0}
 --- !u!1001 &8041514185652372739
 PrefabInstance:
   m_ObjectHideFlags: 0

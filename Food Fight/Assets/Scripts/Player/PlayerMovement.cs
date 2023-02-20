@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
         if (verticalMovement == 0 && horizontalMovement == 0) an.SetBool(moving, false);
         else an.SetBool(moving, true);
         //transform.Translate((transform.up * verticalMovement + transform.right * horizontalMovement) * speed * Time.deltaTime);
-        rb.velocity = (transform.up * verticalMovement + transform.right * horizontalMovement) * speed;
+        rb.velocity = (Vector2.up * verticalMovement + Vector2.right * horizontalMovement) * speed;
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, speed);
     }
 }
