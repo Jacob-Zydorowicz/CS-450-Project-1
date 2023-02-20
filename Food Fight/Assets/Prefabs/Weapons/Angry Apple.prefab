@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8795288616696072184}
   - component: {fileID: 8795288616696072185}
   m_Layer: 0
-  m_Name: Basic Ass Apple
+  m_Name: Angry Apple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,6 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <Range>k__BackingField: 10
+  <Damage>k__BackingField: 5
   AmmoPerShot: 1
   spread: 0
   projectile: {fileID: 8064598491234256359, guid: 0ee092ac120e214408834421f81694c2, type: 3}

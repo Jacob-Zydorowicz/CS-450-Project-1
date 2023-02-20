@@ -88,6 +88,11 @@ public class Weapon : MonoBehaviour
         #endregion
     }
 
+    protected virtual void Start()
+    {
+        if (GameSubject.sceneInstance != null) UpdateAmmoLeft.AddListener(GameSubject.sceneInstance.UpdateAmmo);
+    }
+
     #region Aim
     /// <summary>
     /// Sets the current aim direction of the weapon.
@@ -161,7 +166,14 @@ public class Weapon : MonoBehaviour
 
     public void SwapTo()
     {
+        SwapEventUpdates();
         StartCoroutine(SwapRoutine());
+    }
+
+    private void SwapEventUpdates()
+    {
+        if (GameSubject.sceneInstance != null) GameSubject.sceneInstance.UpdateWeapon(gameObject.name);
+        UpdateAmmoLeft.Invoke(currentAmmo);
     }
 
     private IEnumerator SwapRoutine()

@@ -15,7 +15,7 @@ public class DestructableTiles : MonoBehaviour
 
     private void Start()
     {
-        destructableTiles = GameObject.FindGameObjectWithTag("destructible").GetComponent<Tilemap>();
+        destructableTiles = GameObject.FindGameObjectWithTag("Destructable").GetComponent<Tilemap>();
     }
 
     /*   private void OnTriggerEnter2D(Collider2D collision)
@@ -27,20 +27,22 @@ public class DestructableTiles : MonoBehaviour
                Destroy(Collision.)
            }
        }*/
-    private void OnTriggerEnter2D(Collision2D collision)
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("destructible"))
+        if (collision.gameObject.CompareTag("Destructable"))
         {
             Debug.Log("hit");
             Vector3 hitPos = Vector3.zero;
 
-            foreach (ContactPoint2D hit in collision.contacts)
+            /*
+            foreach (ContactPoint2D hit in collision.GetContacts())
             {
                 hitPos.x = hit.point.x - 0.01f * hit.normal.x;
                 hitPos.y = hit.point.y - 0.01f * hit.normal.y;
 
                 destructableTiles.SetTile(destructableTiles.WorldToCell(hitPos), null);
-            }
+            }*/
         }
     }
 }

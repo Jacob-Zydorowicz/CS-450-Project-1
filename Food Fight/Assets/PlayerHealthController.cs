@@ -11,6 +11,12 @@ using UnityEngine;
 public class PlayerHealthController : Damageable
 {
     #region Functions
+    private void Start()
+    {
+        if (GameSubject.sceneInstance != null) HealthChangeEvent.AddListener(GameSubject.sceneInstance.UpdateHealth);
+        HealthChangeEvent.Invoke(CurrentHealth, maxHealth);
+    }
+
     /// <summary>
     /// The event that happens when this damageable loses all of its health.
     /// </summary>

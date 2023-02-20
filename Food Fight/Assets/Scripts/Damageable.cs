@@ -12,7 +12,7 @@ public class Damageable : MonoBehaviour
 {
     #region Fields
     [Tooltip("The maximum health that this object can have")]
-    [SerializeField] private int maxHealth = 100;
+    [SerializeField] protected int maxHealth = 100;
 
     /// <summary>
     /// An event that is called every time the health is modified.
