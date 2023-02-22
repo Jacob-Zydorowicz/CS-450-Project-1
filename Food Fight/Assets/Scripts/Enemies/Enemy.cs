@@ -11,7 +11,7 @@ public class Enemy : Damageable
 
     protected string type;
 
-    public GameObject player;
+    private GameObject player;
 
     [SerializeField] private float lineOfSite = 20;
     [SerializeField] private float shootingRange = 4;
@@ -21,6 +21,11 @@ public class Enemy : Damageable
 
     [SerializeField] private GameObject projectile;
     [SerializeField] private GameObject projectileParent;
+
+    private void Start()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+    }
 
     // Update is called once per frame
     private void FixedUpdate()
