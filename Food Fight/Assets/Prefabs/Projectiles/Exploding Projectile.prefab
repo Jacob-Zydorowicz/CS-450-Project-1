@@ -75,7 +75,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -604727935
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -1674192331, guid: 334cca9ff9e839248b76467e094c7bbc, type: 3}
   m_Color: {r: 0.26669627, g: 0, b: 0.6037736, a: 1}
@@ -142,6 +142,8 @@ MonoBehaviour:
   numberOfExplodedProjectiles: 25
   amountBeforeSpacing: 10
   spacingDelay: 0.025
+  explodedProjectilDamage: 5
+  expodedProjectileRange: 20
   explodedProjectile: {fileID: 8064598491234256359, guid: fe9a3f47c6e05994e9ad218fc85b4121, type: 3}
 --- !u!114 &2353208583108687238
 MonoBehaviour:

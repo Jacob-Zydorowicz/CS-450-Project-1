@@ -11,14 +11,25 @@ using UnityEngine;
 public class ExplodingProjectile : Projectile
 {
     #region Fields
+    [Range(0, 100)]
     [Tooltip("The number of projectiles that explode out from this projectile")]
     [SerializeField] private int numberOfExplodedProjectiles = 20;
 
+    [Range(0, 100)]
     [Tooltip("The number of exploded projectiles before adding a spacing delay")]
     [SerializeField] private int amountBeforeSpacing = 10;
 
+    [Range(0.0f, 1.0f)]
     [Tooltip("The amount of time to delay for spacing")]
     [SerializeField] private float spacingDelay = 0.05f;
+
+    [Range(0, 100)]
+    [Tooltip("The amount of time to delay for spacing")]
+    [SerializeField] private int explodedProjectilDamage = 5;
+
+    [Range(0, 100)]
+    [Tooltip("The amount of time to delay for spacing")]
+    [SerializeField] private float expodedProjectileRange = 10;
 
     [SerializeField] private GameObject explodedProjectile;
     #endregion
@@ -28,7 +39,7 @@ public class ExplodingProjectile : Projectile
     {
         for(int i = 1; i <= numberOfExplodedProjectiles; i++)
         {
-            Instantiate(explodedProjectile, transform.position, Quaternion.Euler(new Vector3(0, 0, Random.Range(0.0f, 360.0f)))).GetComponent<Projectile>().Initialize(weapon);
+            Instantiate(explodedProjectile, transform.position, Quaternion.Euler(new Vector3(0, 0, Random.Range(0.0f, 360.0f)))).GetComponent<Projectile>().Initialize(expodedProjectileRange, explodedProjectilDamage);
 
             if(i%amountBeforeSpacing == 0)
             {

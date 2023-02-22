@@ -22,7 +22,7 @@ public class ProjectileWeaponAction : WeaponAction
 
         // Spawns and initializes the projectile
         var spawnedProjectile = Instantiate(projectile, transform.position, transform.rotation*Spread());
-        spawnedProjectile.GetComponent<Projectile>().Initialize(this);
+        spawnedProjectile.GetComponent<Projectile>().Initialize(Range, Damage);
     }
     #endregion
 }

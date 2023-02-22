@@ -25,7 +25,6 @@ public class Projectile : MonoBehaviour
 
     private float range = 0;
 
-    protected WeaponAction weapon;
     private ProjectileMovementPattern movementPattern;
     #endregion
 
@@ -41,11 +40,11 @@ public class Projectile : MonoBehaviour
         rigidbody.sleepMode = RigidbodySleepMode2D.NeverSleep;
     }
 
-    public void Initialize(WeaponAction weapon)
+    public void Initialize(float range, int damage, string ignoreTag = "Player")
     {
-        range = weapon.Range;
-        damage = weapon.Damage;
-        this.weapon = weapon;
+        this.range = range;
+        this.damage = damage;
+        this.ignoreTag = ignoreTag;
         movementPattern = GetComponent<ProjectileMovementPattern>();
     }
 

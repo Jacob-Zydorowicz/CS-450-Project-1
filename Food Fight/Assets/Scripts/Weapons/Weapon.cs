@@ -14,7 +14,6 @@ public class Weapon : MonoBehaviour
     private WeaponRoutine mainWeaponRoutine;
     private WeaponRoutine altWeaponRoutine;
 
-    // TODO
     #region Ammo
     [Header("Ammo")]
     [Range(0, 1000)]
@@ -61,6 +60,9 @@ public class Weapon : MonoBehaviour
     /// </summary>
     public bool canShoot { get; private set; } = true;
 
+    /// <summary>
+    /// The time before another shot can be taken.
+    /// </summary>
     [HideInInspector] public float nextShotAllowedTime = -Mathf.Infinity;
     #endregion
     #endregion
@@ -88,6 +90,9 @@ public class Weapon : MonoBehaviour
         #endregion
     }
 
+    /// <summary>
+    /// Adds a listener for the update ammo event call.
+    /// </summary>
     protected virtual void Start()
     {
         if (GameSubject.sceneInstance != null) UpdateAmmoLeft.AddListener(GameSubject.sceneInstance.UpdateAmmo);
@@ -152,6 +157,10 @@ public class Weapon : MonoBehaviour
     #endregion
 
     #region Swapping
+    /// <summary>
+    /// Swaps to or from this weapon.
+    /// </summary>
+    /// <param name="swapTo">Holds true if this weapon should be swapped to.</param>
     public void SwapToFrom(bool swapTo)
     {
         if (swapTo)
@@ -164,25 +173,38 @@ public class Weapon : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Swaps to this weapon.
+    /// </summary>
     public void SwapTo()
     {
         SwapEventUpdates();
         StartCoroutine(SwapRoutine());
     }
 
-    private void SwapEventUpdates()
+    /// <summary>
+    /// Handles all events that should happen when swapping to this weapon.
+    /// </summary>
+    protected virtual void SwapEventUpdates()
     {
         if (GameSubject.sceneInstance != null) GameSubject.sceneInstance.UpdateWeapon(gameObject.name);
         UpdateAmmoLeft.Invoke(currentAmmo);
     }
 
+    /// <summary>
+    /// A routine to perform during a weapon swap.
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator SwapRoutine()
     {
         yield return new WaitForSeconds(swapToTime);
         canShoot = true;
     }
 
-    public void SwapFrom()
+    /// <summary>
+    /// Handles the events when swapping from this weapon.
+    /// </summary>
+    protected virtual void SwapFrom()
     {
         StopAllCoroutines();
         canShoot = false;
