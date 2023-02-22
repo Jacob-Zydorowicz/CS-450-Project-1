@@ -2,17 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyB : MonoBehaviour
+public class EnemyB : Enemy
 {
-    // Start is called before the first frame update
-    void Start()
+    public EnemyB()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        this.type = "EnemyB";
     }
 }

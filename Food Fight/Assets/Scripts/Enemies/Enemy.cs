@@ -6,6 +6,7 @@ public class Enemy : Damageable
 {
     public float damage;
     public float speed;
+    protected string type;
 
     public GameObject player;
 
