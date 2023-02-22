@@ -10,11 +10,16 @@ public class WaveSystem : MonoBehaviour
     List<GameObject> enemies;
     GameSubject gs;
     bool change = false;
+    [SerializeField] string[] enemyArray;
     [SerializeField] string level;
+    [SerializeField] Vector2[] spawnPoints;
+    [SerializeField] float spawnBuffer;
+    EnemySpawner es;
 
     // Start is called before the first frame update
     void Start()
     {
+        es = gameObject.GetComponent<EnemySpawner>();
         gs = GetComponent<GameSubject>();
         gs.UpdateWave(wave);
         enemies = new List<GameObject>();
@@ -29,8 +34,20 @@ public class WaveSystem : MonoBehaviour
         }
         for (int i = 0; i < 1 + wave * 2; i++)
         {
-            //spawn enemy
+            string enemyType = enemyArray[Random.Range(0, enemyArray.Length)];
+            Vector2 spawnPos = GetRandomPos();
+            while((spawnPos-(Vector2)GameObject.FindGameObjectWithTag("Player").transform.position).magnitude<spawnBuffer)
+            {
+                spawnPos = GetRandomPos();
+            }
+            //GameObject enemyToSpawn = es.SpawnEnemy(enemyType);
+            //Instantiate(enemyToSpawn, spawnPos, Quaternion.identity();
         }
+    }
+
+    Vector2 GetRandomPos()
+    {
+        return spawnPoints[Random.Range(0, spawnPoints.Length)];
     }
     // Update is called once per frame
     void Update()
