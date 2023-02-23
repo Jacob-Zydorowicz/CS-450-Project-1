@@ -204,10 +204,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  destrucitonSounds:
+  - {fileID: 8300000, guid: f57e6eb920ff2f7489797b94cbe4eed4, type: 3}
+  - {fileID: 8300000, guid: e64d2d15cd79bc744a2bed6c23662ab3, type: 3}
+  destructionSoundVolume: 1
   projectileRange: 10
   damage: 5
   movementSpeed: 3
-  player: {fileID: 0}
   lineOfSite: 20
   shootingRange: 7
   fireRate: 1

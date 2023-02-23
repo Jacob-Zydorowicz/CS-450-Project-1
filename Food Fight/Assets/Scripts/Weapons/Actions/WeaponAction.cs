@@ -29,6 +29,13 @@ public abstract class WeaponAction : MonoBehaviour
     [Tooltip("The distance that the projectile can travel")]
     [SerializeField] protected float spread = 0.0f;
 
+    [Tooltip("The sound played when throwing an attack")]
+    [SerializeField] private AudioClip attackSound;
+
+    [Range(0.0f, 1.0f)]
+    [Tooltip("Attack sound volume")]
+    [SerializeField] private float attackSoundVolume = 1.0f;
+
     #region Animation
     private string fire = "Fire";
     private string firing = "Firing";
@@ -49,6 +56,7 @@ public abstract class WeaponAction : MonoBehaviour
 
     public virtual void PerformAction()
     {
+        SoundManager.PlaySound(attackSound, attackSoundVolume, transform.position);
         an.SetBool(firing, true);
         an.SetTrigger(fire);
         weapon.UseAmmo(AmmoPerShot);

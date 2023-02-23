@@ -19,11 +19,19 @@ public class Projectile : MonoBehaviour
     [Tooltip("The speed of the projectile")]
     [SerializeField] private float speed = 5;
 
-    [Range(0.0f, 50.0f)]
-    [Tooltip("The speed of the projectile")]
-    [SerializeField] private int damage = 1;
+    /// <summary>
+    /// The amount of damage that this projectile can deal.
+    /// </summary>
+    private int damage = 1;
 
     private float range = 0;
+
+    [Tooltip("The sound played when hitting something")]
+    [SerializeField] private AudioClip hitSound;
+
+    [Range(0.0f, 1.0f)]
+    [Tooltip("Hit sound volume")]
+    [SerializeField] private float hitSoundVolume = 1.0f;
 
     private ProjectileMovementPattern movementPattern;
     #endregion
@@ -73,6 +81,7 @@ public class Projectile : MonoBehaviour
     {
         if(!ShouldIgnore(collision.gameObject) && collision.gameObject.TryGetComponent(out Damageable damageable))
         {
+            SoundManager.PlaySound(hitSound, hitSoundVolume, transform.position);
             damageable.UpdateHealth(damage);
             StartCoroutine(DestructionEvent());
         }

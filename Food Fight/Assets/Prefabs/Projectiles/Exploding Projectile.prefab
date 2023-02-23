@@ -138,13 +138,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  damage: 5
+  hitSound: {fileID: 8300000, guid: 46c5b87a943790949b20caa674c10380, type: 3}
+  hitSoundVolume: 1
   numberOfExplodedProjectiles: 25
   amountBeforeSpacing: 10
   spacingDelay: 0.025
   explodedProjectilDamage: 5
   expodedProjectileRange: 20
   explodedProjectile: {fileID: 8064598491234256359, guid: fe9a3f47c6e05994e9ad218fc85b4121, type: 3}
+  explosionSound: {fileID: 8300000, guid: 6d1a0b6e7af65c644adf6712e4315090, type: 3}
+  explosionSoundVolume: 1
 --- !u!114 &2353208583108687238
 MonoBehaviour:
   m_ObjectHideFlags: 0

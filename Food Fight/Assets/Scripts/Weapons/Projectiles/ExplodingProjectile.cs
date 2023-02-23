@@ -32,11 +32,20 @@ public class ExplodingProjectile : Projectile
     [SerializeField] private float expodedProjectileRange = 10;
 
     [SerializeField] private GameObject explodedProjectile;
+
+    [Tooltip("The sound played when this object explodes")]
+    [SerializeField] private AudioClip explosionSound;
+
+    [Range(0.0f, 1.0f)]
+    [Tooltip("Explosion sound volume")]
+    [SerializeField] private float explosionSoundVolume = 1.0f;
     #endregion
 
     #region Functions
     protected override IEnumerator DestructionEvent()
     {
+        SoundManager.PlaySound(explosionSound, explosionSoundVolume, transform.position);
+
         for(int i = 1; i <= numberOfExplodedProjectiles; i++)
         {
             Instantiate(explodedProjectile, transform.position, Quaternion.Euler(new Vector3(0, 0, Random.Range(0.0f, 360.0f)))).GetComponent<Projectile>().Initialize(expodedProjectileRange, explodedProjectilDamage);

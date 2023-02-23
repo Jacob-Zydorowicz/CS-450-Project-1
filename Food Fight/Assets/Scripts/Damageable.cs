@@ -11,6 +11,7 @@ using UnityEngine.Events;
 public class Damageable : MonoBehaviour
 {
     #region Fields
+    #region Health
     [Tooltip("The maximum health that this object can have")]
     [SerializeField] protected int maxHealth = 100;
 
@@ -38,6 +39,16 @@ public class Damageable : MonoBehaviour
     }
     #endregion
 
+    #region Destruction Sounds
+    [Tooltip("The sounds that can be made when this object dies")]
+    [SerializeField] private AudioClip[] destrucitonSounds = new AudioClip[0];
+
+    [Range(0.0f, 1.0f)]
+    [Tooltip("The volume of the destruction sounds")]
+    [SerializeField] private float destructionSoundVolume = 1.0f;
+    #endregion
+    #endregion
+
     #region Functions
     /// <summary>
     /// Initializes the health of the damageable.
@@ -61,8 +72,16 @@ public class Damageable : MonoBehaviour
 
         if (currentHealth == 0)
         {
+            PlayDestructionSounds();
             DestructionEvent();
         }
+    }
+
+    private void PlayDestructionSounds()
+    {
+        if (destrucitonSounds.Length == 0) return;
+
+        SoundManager.PlaySound(destrucitonSounds[Random.Range(0, destrucitonSounds.Length)], destructionSoundVolume, transform.position);
     }
 
     protected virtual void DestructionEvent()

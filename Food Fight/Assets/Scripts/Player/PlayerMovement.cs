@@ -14,6 +14,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Animator an;
     Rigidbody2D rb;
 
+    [SerializeField] private AudioClip footStepSound;
+    [Tooltip("Time between footstep sounds")]
+    [SerializeField] float timeBetweenFootstepSounds = 0.25f;
+    private float lastStepTime;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,15 +42,22 @@ public class PlayerMovement : MonoBehaviour
         //If both right and left are pressed
         if (Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.A) || !(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.A))) horizontalMovement = 0;
 
-        
-
         Move();
     }
 
     private void Move()
     {
-        if (verticalMovement == 0 && horizontalMovement == 0) an.SetBool(moving, false);
-        else an.SetBool(moving, true);
+        var isMoving = verticalMovement != 0 || horizontalMovement != 0;
+
+        an.SetBool(moving, isMoving);
+
+        if (isMoving && Time.time > timeBetweenFootstepSounds + lastStepTime)
+        {
+            print("Step");
+            lastStepTime = Time.time;
+            SoundManager.PlaySound(footStepSound, 1, transform.position);
+        }
+
         //transform.Translate((transform.up * verticalMovement + transform.right * horizontalMovement) * speed * Time.deltaTime);
         rb.velocity = (Vector2.up * verticalMovement + Vector2.right * horizontalMovement) * speed;
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, speed);
