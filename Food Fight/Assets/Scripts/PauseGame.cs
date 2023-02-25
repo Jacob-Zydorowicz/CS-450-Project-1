@@ -11,6 +11,10 @@ using UnityEngine.SceneManagement;
 
 public class PauseGame : MonoBehaviour
 {
+    private void Start()
+    {
+        Time.timeScale = 1;
+    }
     [SerializeField] GameObject pauseMenu;
     public static bool gameIsPaused = false;
     // Update is called once per frame
@@ -44,8 +48,4 @@ public class PauseGame : MonoBehaviour
         SceneManager.LoadScene("Menu");
     }
 
-    public void QuitGame()
-    {
-        Application.Quit();
-    }
 }
