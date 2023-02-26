@@ -33283,11 +33283,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2618089249829127454, guid: 21ef2d5a75add9e4aae7abe9243d19b5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.141
+      value: 3.819
       objectReference: {fileID: 0}
     - target: {fileID: 2618089249829127454, guid: 21ef2d5a75add9e4aae7abe9243d19b5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.98
+      value: -1.541
       objectReference: {fileID: 0}
     - target: {fileID: 2618089249829127454, guid: 21ef2d5a75add9e4aae7abe9243d19b5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -33369,6 +33369,22 @@ PrefabInstance:
     - target: {fileID: 8041514185447638142, guid: 1194058c6f646be479bc0e1ad6fd2a20, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041514185652372741, guid: 1194058c6f646be479bc0e1ad6fd2a20, type: 3}
+      propertyPath: enemyArray.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041514185652372741, guid: 1194058c6f646be479bc0e1ad6fd2a20, type: 3}
+      propertyPath: spawnPoints.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041514185652372741, guid: 1194058c6f646be479bc0e1ad6fd2a20, type: 3}
+      propertyPath: enemyArray.Array.data[0]
+      value: EnemyA
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041514185652372741, guid: 1194058c6f646be479bc0e1ad6fd2a20, type: 3}
+      propertyPath: enemyArray.Array.data[1]
+      value: EnemyB
       objectReference: {fileID: 0}
     - target: {fileID: 8041514185713103562, guid: 1194058c6f646be479bc0e1ad6fd2a20, type: 3}
       propertyPath: m_AnchorMax.y
