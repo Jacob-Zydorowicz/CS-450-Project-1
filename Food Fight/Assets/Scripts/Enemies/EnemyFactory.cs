@@ -4,19 +4,44 @@ using UnityEngine;
 
 public class EnemyFactory : MonoBehaviour
 {
-    public Enemy CreateEnemy(string type)
+    private GameObject enemyToSpawn;
+
+    public GameObject AddEnemyScript(GameObject prefab, string type)
     {
-        Enemy enemy = null;
+        enemyToSpawn = prefab;
 
         if (type.Equals("EnemyA"))
         {
-            enemy = new EnemyA();
-        }
-        else if (type.Equals("EnemyB"))
-        {
-            enemy = new EnemyB();
+            if (enemyToSpawn.GetComponent<EnemyA>() == null)
+            {
+                enemyToSpawn.AddComponent<EnemyA>();
+            }
         }
 
-        return enemy;
+        if (type.Equals("EnemyB"))
+        {
+            if (enemyToSpawn.GetComponent<EnemyB>() == null)
+            {
+                enemyToSpawn.AddComponent<EnemyB>();
+            }
+        }
+
+        return enemyToSpawn;
     }
+
+    //public Enemy CreateEnemy(string type)
+    //{
+    //    Enemy enemy = null;
+
+    //    if (type.Equals("EnemyA"))
+    //    {
+    //        enemy = new EnemyA();
+    //    }
+    //    else if (type.Equals("EnemyB"))
+    //    {
+    //        enemy = new EnemyB();
+    //    }
+
+    //    return enemy;
+    //}
 }

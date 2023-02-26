@@ -40,8 +40,8 @@ public class WaveSystem : MonoBehaviour
             {
                 spawnPos = GetRandomPos();
             }
-            //GameObject enemyToSpawn = es.SpawnEnemy(enemyType);
-            //Instantiate(enemyToSpawn, spawnPos, Quaternion.identity();
+            GameObject enemyToSpawn = es.SpawnEnemy(enemyType);
+            Instantiate(enemyToSpawn, spawnPos, Quaternion.identity);
         }
     }
 

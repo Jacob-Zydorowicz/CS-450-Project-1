@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public EnemyFactory factory;
-    public Enemy enemy;
+    public EnemyFactory scriptFactory;
+    public PrefabFactory prefabFactory;
+    private GameObject enemy;
 
-    public EnemySpawner(EnemyFactory factory)
-    {
-        this.factory = factory;
-    }
+    //public EnemySpawner(EnemyFactory factory)
+    //{
+    //    this.factory = factory;
+    //}
 
-    public Enemy SpawnEnemy(string type)
+    public GameObject SpawnEnemy(string type)
     {
-        enemy = factory.CreateEnemy(type);
+        enemy = prefabFactory.CreateEnemy(type);
+
+        scriptFactory.AddEnemyScript(enemy, type);
 
         return enemy;
     }
