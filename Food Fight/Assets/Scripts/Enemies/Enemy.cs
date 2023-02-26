@@ -22,11 +22,13 @@ public class Enemy : Damageable
     [SerializeField] private GameObject projectile;
     [SerializeField] private GameObject projectileParent;
 
-    public WaveSystem waveSystem;
+    private WaveSystem waveSystem;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        waveSystem = FindObjectOfType<WaveSystem>();
+        waveSystem.Add(this.gameObject);
     }
 
     // Update is called once per frame

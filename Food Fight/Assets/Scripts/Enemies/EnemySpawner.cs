@@ -18,15 +18,8 @@ public class EnemySpawner : MonoBehaviour
     {
         enemy = prefabFactory.CreateEnemy(type);
 
-        scriptFactory.AddEnemyScript(enemy, type);
-
-        waveSystem.Add(enemy);
+        //scriptFactory.AddEnemyScript(enemy, type);
 
         return enemy;
-    }
-
-    private void OnDestroy()
-    {
-        waveSystem.Remove(enemy);
     }
 }
