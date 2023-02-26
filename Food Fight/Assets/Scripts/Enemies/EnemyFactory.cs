@@ -28,20 +28,4 @@ public class EnemyFactory : MonoBehaviour
 
         return enemyToSpawn;
     }
-
-    //public Enemy CreateEnemy(string type)
-    //{
-    //    Enemy enemy = null;
-
-    //    if (type.Equals("EnemyA"))
-    //    {
-    //        enemy = new EnemyA();
-    //    }
-    //    else if (type.Equals("EnemyB"))
-    //    {
-    //        enemy = new EnemyB();
-    //    }
-
-    //    return enemy;
-    //}
 }
