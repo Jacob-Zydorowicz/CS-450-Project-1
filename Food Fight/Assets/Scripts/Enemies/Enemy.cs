@@ -22,6 +22,8 @@ public class Enemy : Damageable
     [SerializeField] private GameObject projectile;
     [SerializeField] private GameObject projectileParent;
 
+    public WaveSystem waveSystem;
+
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -53,5 +55,10 @@ public class Enemy : Damageable
             spawnedProjectile.GetComponent<Projectile>().Initialize(projectileRange, damage, "Enemy");
             nextFireTime = Time.time + fireRate;
         }
+    }
+
+    private void OnDestroy()
+    {
+        waveSystem.Remove(this.gameObject);
     }
 }
