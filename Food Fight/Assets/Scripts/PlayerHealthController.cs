@@ -22,6 +22,7 @@ public class PlayerHealthController : Damageable
     /// </summary>
     protected override void DestructionEvent()
     {
+        DeathEvent.Invoke();
         print("You Are Dead!!!");
     }
     #endregion

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class WaveSystem : MonoBehaviour
@@ -16,6 +17,8 @@ public class WaveSystem : MonoBehaviour
     [SerializeField] float spawnBuffer;
     EnemySpawner es;
 
+    public UnityEvent<string> levelWon = new UnityEvent<string>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,18 +33,21 @@ public class WaveSystem : MonoBehaviour
     {
         if(wave>5)
         {
-            SceneManager.LoadScene(level);
+            levelWon.Invoke(level);
         }
-        for (int i = 0; i < 1 + wave * 2; i++)
+        else
         {
-            string enemyType = enemyArray[Random.Range(0, enemyArray.Length)];
-            Vector2 spawnPos = GetRandomPos();
-            while((spawnPos-(Vector2)GameObject.FindGameObjectWithTag("Player").transform.position).magnitude<spawnBuffer)
+            for (int i = 0; i < 1 + wave * 2; i++)
             {
-                spawnPos = GetRandomPos();
+                string enemyType = enemyArray[Random.Range(0, enemyArray.Length)];
+                Vector2 spawnPos = GetRandomPos();
+                while ((spawnPos - (Vector2)GameObject.FindGameObjectWithTag("Player").transform.position).magnitude < spawnBuffer)
+                {
+                    spawnPos = GetRandomPos();
+                }
+                GameObject enemyToSpawn = es.SpawnEnemy(enemyType);
+                Instantiate(enemyToSpawn, spawnPos, Quaternion.identity);
             }
-            GameObject enemyToSpawn = es.SpawnEnemy(enemyType);
-            Instantiate(enemyToSpawn, spawnPos, Quaternion.identity);
         }
     }
 

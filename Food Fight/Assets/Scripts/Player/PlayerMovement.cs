@@ -62,4 +62,10 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = (Vector2.up * verticalMovement + Vector2.right * horizontalMovement) * speed;
         rb.velocity = Vector2.ClampMagnitude(rb.velocity, speed);
     }
+
+    public void StopPlayer()
+    {
+        rb.velocity = Vector2.zero;
+        this.enabled = false;
+    }
 }

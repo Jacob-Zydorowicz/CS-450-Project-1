@@ -39,6 +39,8 @@ public class Damageable : MonoBehaviour
     }
     #endregion
 
+    public UnityEvent DeathEvent = new UnityEvent();
+
     #region Destruction Sounds
     [Tooltip("The sounds that can be made when this object dies")]
     [SerializeField] private AudioClip[] destrucitonSounds = new AudioClip[0];
@@ -86,6 +88,7 @@ public class Damageable : MonoBehaviour
 
     protected virtual void DestructionEvent()
     {
+        DeathEvent.Invoke();
         Destroy(gameObject);
     }
     #endregion

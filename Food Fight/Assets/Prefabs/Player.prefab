@@ -423,6 +423,33 @@ MonoBehaviour:
   HealthChangeEvent:
     m_PersistentCalls:
       m_Calls: []
+  DeathEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8745658184634994826}
+        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+        m_MethodName: StopPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8745658184634994825}
+        m_TargetAssemblyTypeName: PlayerWeaponController, Assembly-CSharp
+        m_MethodName: StopPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   destrucitonSounds:
   - {fileID: 8300000, guid: f57e6eb920ff2f7489797b94cbe4eed4, type: 3}
   - {fileID: 8300000, guid: e64d2d15cd79bc744a2bed6c23662ab3, type: 3}
@@ -517,7 +544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8092910138418509112, guid: 6e6f679d187ea054a939c40000eacb2b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.4871752
+      value: -4.4763036
       objectReference: {fileID: 0}
     - target: {fileID: 8092910138418509112, guid: 6e6f679d187ea054a939c40000eacb2b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -551,6 +578,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 8092910138418509255, guid: 6e6f679d187ea054a939c40000eacb2b, type: 3}
+      propertyPath: orthographic size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8092910138641438534, guid: 6e6f679d187ea054a939c40000eacb2b, type: 3}
       propertyPath: m_SoftZoneWidth
       value: 0
@@ -567,8 +598,16 @@ PrefabInstance:
       propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 8745658184634994824}
+    - target: {fileID: 8092910139814125686, guid: 6e6f679d187ea054a939c40000eacb2b, type: 3}
+      propertyPath: m_Lens.OrthographicSize
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8092910139814125687, guid: 6e6f679d187ea054a939c40000eacb2b, type: 3}
       propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8092910139814125687, guid: 6e6f679d187ea054a939c40000eacb2b, type: 3}
+      propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

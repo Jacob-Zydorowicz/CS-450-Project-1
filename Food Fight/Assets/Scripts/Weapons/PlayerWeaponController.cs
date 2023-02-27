@@ -203,5 +203,16 @@ public class PlayerWeaponController : MonoBehaviour
     {
         an.SetBool(firing, false);
     }
+
+    public void StopPlayer()
+    {
+        foreach(Weapon weapon in weapons)
+        {
+            weapon.MainActionUp();
+            weapon.AltActionUp();
+        }
+
+        this.enabled = false;
+    }
     #endregion
 }
