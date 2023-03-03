@@ -113,6 +113,7 @@ GameObject:
   - component: {fileID: 25455863579749235}
   - component: {fileID: 25455863579749236}
   - component: {fileID: 8718613883316039940}
+  - component: {fileID: 3971460379427261785}
   m_Layer: 3
   m_Name: EnemyA
   m_TagString: Enemy
@@ -232,6 +233,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  DeathEvent:
+    m_PersistentCalls:
+      m_Calls: []
   destrucitonSounds:
   - {fileID: 8300000, guid: f57e6eb920ff2f7489797b94cbe4eed4, type: 3}
   - {fileID: 8300000, guid: e64d2d15cd79bc744a2bed6c23662ab3, type: 3}
@@ -244,6 +248,27 @@ MonoBehaviour:
   fireRate: 1
   projectile: {fileID: 8064598491234256359, guid: fe9a3f47c6e05994e9ad218fc85b4121, type: 3}
   projectileParent: {fileID: 25455863579749232}
+--- !u!50 &3971460379427261785
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25455863579749232}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!1 &25455864196699275
 GameObject:
   m_ObjectHideFlags: 0
