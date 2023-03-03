@@ -1,3 +1,9 @@
+/*
+ * Jacob Zydorowicz
+ * WaveSystem.cs
+ * Food Fight
+ * Manages enemy wave system and spawning of enemies.
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,11 +15,11 @@ public class WaveSystem : MonoBehaviour
 
     int wave = 1;
     List<GameObject> enemies;
+    [SerializeField] List<GameObject> spawnPoints;
     GameSubject gs;
     bool change = false;
     [SerializeField] string[] enemyArray;
     [SerializeField] string level;
-    [SerializeField] Vector2[] spawnPoints;
     [SerializeField] float spawnBuffer;
     EnemySpawner es;
 
@@ -22,6 +28,7 @@ public class WaveSystem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         es = gameObject.GetComponent<EnemySpawner>();
         gs = GetComponent<GameSubject>();
         gs.UpdateWave(wave);
@@ -39,6 +46,7 @@ public class WaveSystem : MonoBehaviour
         {
             for (int i = 0; i < 1 + wave * 2; i++)
             {
+
                 string enemyType = enemyArray[Random.Range(0, enemyArray.Length)];
                 Vector2 spawnPos = GetRandomPos();
                 while ((spawnPos - (Vector2)GameObject.FindGameObjectWithTag("Player").transform.position).magnitude < spawnBuffer)
@@ -51,9 +59,12 @@ public class WaveSystem : MonoBehaviour
         }
     }
 
+    //randomly selects a spawn position from the list and gets its coordinates
     Vector2 GetRandomPos()
     {
-        return spawnPoints[Random.Range(0, spawnPoints.Length)];
+        int spawnerNum = Random.Range(0, spawnPoints.Count - 1);
+        Vector2 spawnerCoords = new Vector2(spawnPoints[spawnerNum].transform.position.x, spawnPoints[spawnerNum].transform.position.y);
+        return spawnerCoords;
     }
     // Update is called once per frame
     void Update()
