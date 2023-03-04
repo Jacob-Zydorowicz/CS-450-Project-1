@@ -2,14 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 public class EnemyObserver : MonoBehaviour, Observer
 {
     Subject subject;
-    Text enemyText, waveText;
+    TextMeshProUGUI enemyText, waveText;
     private void Start()
     {
-        enemyText = GameObject.FindGameObjectWithTag("EnemyText").GetComponent<Text>();
-        waveText = GameObject.FindGameObjectWithTag("WaveText").GetComponent<Text>();
+        enemyText = GameObject.FindGameObjectWithTag("EnemyText").GetComponent<TextMeshProUGUI>();
+        waveText = GameObject.FindGameObjectWithTag("WaveText").GetComponent<TextMeshProUGUI>();
         subject = GameObject.FindObjectOfType<GameSubject>();
         subject.Register(this);
     }

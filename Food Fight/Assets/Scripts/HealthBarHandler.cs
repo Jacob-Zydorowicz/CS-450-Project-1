@@ -25,6 +25,7 @@ public class HealthBarHandler : MonoBehaviour
         healthBarImage = GetComponent<Image>();
     }
 
+
     /// <summary>
     /// Updates the fill of the health bar.
     /// </summary>

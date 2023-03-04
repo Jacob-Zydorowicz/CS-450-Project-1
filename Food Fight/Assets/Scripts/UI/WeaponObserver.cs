@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class WeaponObserver : MonoBehaviour, Observer
 {
     Subject subject;
-    Text weaponText, ammoText;
+    TextMeshProUGUI weaponText, ammoText;
     private void Start()
     {
-        weaponText = GameObject.FindGameObjectWithTag("WeaponText").GetComponent<Text>();
-        ammoText = GameObject.FindGameObjectWithTag("AmmoText").GetComponent<Text>();
+        weaponText = GameObject.FindGameObjectWithTag("WeaponText").GetComponent<TextMeshProUGUI>();
+        ammoText = GameObject.FindGameObjectWithTag("AmmoText").GetComponent<TextMeshProUGUI>();
         subject = GameObject.FindObjectOfType<GameSubject>();
         subject.Register(this);
     }

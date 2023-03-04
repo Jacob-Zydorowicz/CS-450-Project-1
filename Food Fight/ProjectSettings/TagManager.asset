@@ -12,6 +12,7 @@ TagManager:
   - AmmoText
   - Destructable
   - Enemy
+  - HealthBar
   layers:
   - Default
   - TransparentFX

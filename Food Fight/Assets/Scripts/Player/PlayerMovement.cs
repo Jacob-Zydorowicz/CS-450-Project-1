@@ -53,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isMoving && Time.time > timeBetweenFootstepSounds + lastStepTime)
         {
-            print("Step");
+            //print("Step");
             lastStepTime = Time.time;
             SoundManager.PlaySound(footStepSound, 1, transform.position);
         }
