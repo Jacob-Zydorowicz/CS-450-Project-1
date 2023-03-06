@@ -46,9 +46,9 @@ public abstract class WeaponRoutine : MonoBehaviour
     /// <summary>
     /// Performs the action of the weapon.
     /// </summary>
-    protected virtual void PerformWeaponAction()
+    protected virtual void PerformWeaponAction(float damageMod = 1.0f, float speedMod = 1.0f, float rangeMod = 1.0f)
     {
-        weaponAction.PerformAction();
+        weaponAction.PerformAction(damageMod, speedMod, rangeMod);
         weapon.nextShotAllowedTime = Time.time + timeBetweenShots;
     }
 

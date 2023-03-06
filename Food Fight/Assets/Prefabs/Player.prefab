@@ -44,7 +44,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f129fe3fa394dc7489e4b32a29ab10f4, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.25
+  m_Volume: 0.15
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -188,7 +188,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.25
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -675,11 +675,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8092910139814125687, guid: 6e6f679d187ea054a939c40000eacb2b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -19.9592
       objectReference: {fileID: 0}
     - target: {fileID: 8092910139814125687, guid: 6e6f679d187ea054a939c40000eacb2b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 6.6137395
       objectReference: {fileID: 0}
     - target: {fileID: 8092910139814125687, guid: 6e6f679d187ea054a939c40000eacb2b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -792,6 +792,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1709889981391645926, guid: 794b45d48642e7046af755676ca9dd3b, type: 3}
+      propertyPath: spread
+      value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709889981391645926, guid: 794b45d48642e7046af755676ca9dd3b, type: 3}
+      propertyPath: <ProjectileSpeed>k__BackingField
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1709889981507810165, guid: 794b45d48642e7046af755676ca9dd3b, type: 3}
+      propertyPath: <ProjectileSpeed>k__BackingField
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1709889981507810166, guid: 794b45d48642e7046af755676ca9dd3b, type: 3}
       propertyPath: timeBetweenShots
       value: 2
@@ -821,6 +833,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8745658184634994824}
     m_Modifications:
+    - target: {fileID: 4995370324614674029, guid: b8f26c14c93a21c46af829ee1d595b20, type: 3}
+      propertyPath: chargeTime
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995370324614674029, guid: b8f26c14c93a21c46af829ee1d595b20, type: 3}
+      propertyPath: chargeRangeMod
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995370324614674029, guid: b8f26c14c93a21c46af829ee1d595b20, type: 3}
+      propertyPath: chargeSpeedMod
+      value: 1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995370324614674029, guid: b8f26c14c93a21c46af829ee1d595b20, type: 3}
+      propertyPath: mustFullyCharge
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995370324614674029, guid: b8f26c14c93a21c46af829ee1d595b20, type: 3}
+      propertyPath: continueChargeUponRelease
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5346226237477993567, guid: b8f26c14c93a21c46af829ee1d595b20, type: 3}
+      propertyPath: <Damage>k__BackingField
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5346226237477993567, guid: b8f26c14c93a21c46af829ee1d595b20, type: 3}
+      propertyPath: <ProjectileSpeed>k__BackingField
+      value: 8.5
+      objectReference: {fileID: 0}
     - target: {fileID: 8795288616696072184, guid: b8f26c14c93a21c46af829ee1d595b20, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -876,6 +916,10 @@ PrefabInstance:
     - target: {fileID: 8795288617303999920, guid: b8f26c14c93a21c46af829ee1d595b20, type: 3}
       propertyPath: <Damage>k__BackingField
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8795288617303999920, guid: b8f26c14c93a21c46af829ee1d595b20, type: 3}
+      propertyPath: <ProjectileSpeed>k__BackingField
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8f26c14c93a21c46af829ee1d595b20, type: 3}

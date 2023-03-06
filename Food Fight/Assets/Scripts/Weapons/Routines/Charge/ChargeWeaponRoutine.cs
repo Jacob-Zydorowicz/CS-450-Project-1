@@ -36,6 +36,11 @@ public class ChargeWeaponRoutine : WeaponRoutine
     }
 
     private Coroutine automaticReleaseRoutineRef;
+
+    [Header("Charge Weapon Modifiers")]
+    [SerializeField] private float chargeDamageMod = 2.0f;
+    [SerializeField] private float chargeSpeedMod = 2.0f;
+    [SerializeField] private float chargeRangeMod = 2.0f;
     #endregion
 
     #region Functions
@@ -91,7 +96,7 @@ public class ChargeWeaponRoutine : WeaponRoutine
         {
             if(CurrentCharge == 1.0f)
             {
-                PerformWeaponAction();
+                PerformWeaponAction(DamageMod(), SpeedMod(), RangeMod());
             }
             else
             {
@@ -100,7 +105,7 @@ public class ChargeWeaponRoutine : WeaponRoutine
         }
         else if(CurrentCharge != 0.0f)
         {
-            PerformWeaponAction();
+            PerformWeaponAction(DamageMod(), SpeedMod(), RangeMod());
         }
 
         StartAutomaticRelease(false);
@@ -124,15 +129,20 @@ public class ChargeWeaponRoutine : WeaponRoutine
         }
     }
 
-    /*
-    /// <summary>
-    /// Calculates the amount to heal or damage if it is a charge attack.
-    /// </summary>
-    /// <returns></returns>
-    public int CalculateDamage()
+    private float DamageMod()
     {
-        //return ModdedDamage((int)Mathf.Lerp(minAmount, maxAmount, CurrentCharge));
-    }*/
+        return Mathf.Lerp(1.0f, chargeDamageMod, CurrentCharge);
+    }
+
+    private float SpeedMod()
+    {
+        return Mathf.Lerp(1.0f, chargeSpeedMod, CurrentCharge);
+    }
+
+    private float RangeMod()
+    {
+        return Mathf.Lerp(1.0f, chargeRangeMod, CurrentCharge);
+    }
 
     #region Automatic Release
     /// <summary>

@@ -54,7 +54,7 @@ public abstract class WeaponAction : MonoBehaviour
         an = transform.parent.parent.gameObject.GetComponent<Animator>();
     }
 
-    public virtual void PerformAction()
+    public virtual void PerformAction(float damageMod = 1.0f, float speedMod = 1.0f, float rangeMod = 1.0f)
     {
         SoundManager.PlaySound(attackSound, attackSoundVolume, transform.position);
         an.SetBool(firing, true);

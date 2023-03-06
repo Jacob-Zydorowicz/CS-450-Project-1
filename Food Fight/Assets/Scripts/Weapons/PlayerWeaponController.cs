@@ -46,7 +46,7 @@ public class PlayerWeaponController : MonoBehaviour
     /// </summary>
     private void Awake()
     {
-       
+        weapons[0].SwapToFrom(true);
     }
 
     /// <summary>

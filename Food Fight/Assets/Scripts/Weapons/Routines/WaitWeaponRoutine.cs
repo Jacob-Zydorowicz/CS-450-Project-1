@@ -30,9 +30,9 @@ public class WaitWeaponRoutine : WeaponRoutine
         }
     }
 
-    protected override void PerformWeaponAction()
+    protected override void PerformWeaponAction(float damageMod = 1, float speedMod = 1, float rangeMod = 1)
     {
-        base.PerformWeaponAction();
+        base.PerformWeaponAction(damageMod, speedMod, rangeMod);
         weapon.nextShotAllowedTime = Mathf.Infinity;
     }
 

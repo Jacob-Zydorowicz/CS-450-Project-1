@@ -21,20 +21,20 @@ public class BeamWeaponAction : WeaponAction
         enemyMask = LayerMask.NameToLayer("Enemy");
     }
 
-    public override void PerformAction()
+    public override void PerformAction(float damageMod = 1, float speedMod = 1, float rangeMod = 1)
     {
-        base.PerformAction();
+        base.PerformAction(damageMod, speedMod, rangeMod);
 
         RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.right, Range, enemyMask);
 
         Debug.DrawRay(transform.position, transform.right, Color.green);
 
-        if(hit.transform != null)
+        if (hit.transform != null)
         {
             var damageable = hit.transform.gameObject.GetComponent<Damageable>();
 
-            if(damageable != null)
-            damageable.UpdateHealth(Damage);
+            if (damageable != null)
+                damageable.UpdateHealth(Damage);
         }
     }
     #endregion
