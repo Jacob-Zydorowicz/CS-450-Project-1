@@ -147,7 +147,7 @@ MonoBehaviour:
   expodedProjectileRange: 20
   explodedProjectile: {fileID: 8064598491234256359, guid: fe9a3f47c6e05994e9ad218fc85b4121, type: 3}
   explosionSound: {fileID: 8300000, guid: 6d1a0b6e7af65c644adf6712e4315090, type: 3}
-  explosionSoundVolume: 1
+  explosionSoundVolume: 0.55
 --- !u!114 &2353208583108687238
 MonoBehaviour:
   m_ObjectHideFlags: 0

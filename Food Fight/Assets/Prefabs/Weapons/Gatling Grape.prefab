@@ -114,7 +114,7 @@ MonoBehaviour:
   AmmoPerShot: 1
   spread: 10
   attackSound: {fileID: 8300000, guid: 369943fb42e73f94d8899e97bf3b2cb2, type: 3}
-  attackSoundVolume: 1
+  attackSoundVolume: 0.55
   projectile: {fileID: 8064598491234256359, guid: fe9a3f47c6e05994e9ad218fc85b4121, type: 3}
 --- !u!1 &1709889981507810155
 GameObject:
