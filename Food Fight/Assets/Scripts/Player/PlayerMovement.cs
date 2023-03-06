@@ -17,6 +17,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private AudioClip footStepSound;
     [Tooltip("Time between footstep sounds")]
     [SerializeField] float timeBetweenFootstepSounds = 0.25f;
+
+    [Range(0.0f, 1.0f)]
+    [SerializeField] private float footstepVolume = 0.6f;
+
     private float lastStepTime;
 
     // Start is called before the first frame update
@@ -55,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
         {
             //print("Step");
             lastStepTime = Time.time;
-            SoundManager.PlaySound(footStepSound, 1, transform.position);
+            SoundManager.PlaySound(footStepSound, footstepVolume, transform.position);
         }
 
         //transform.Translate((transform.up * verticalMovement + transform.right * horizontalMovement) * speed * Time.deltaTime);

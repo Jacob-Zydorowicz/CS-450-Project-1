@@ -117,9 +117,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  damage: 1
   hitSound: {fileID: 8300000, guid: 46c5b87a943790949b20caa674c10380, type: 3}
   hitSoundVolume: 1
+  hitVFX: {fileID: 696702231822546397, guid: dea2319e00fd26b46b96fd74742daa1d, type: 3}
 --- !u!50 &1470615887237578414
 Rigidbody2D:
   serializedVersion: 4

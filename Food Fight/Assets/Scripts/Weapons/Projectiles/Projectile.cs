@@ -15,6 +15,7 @@ public class Projectile : MonoBehaviour
     #region Fields
     private string ignoreTag = "Player";
 
+    #region Stats
     [Range(0.0f, 50.0f)]
     [Tooltip("The speed of the projectile")]
     [SerializeField] private float speed = 5;
@@ -25,13 +26,19 @@ public class Projectile : MonoBehaviour
     private int damage = 1;
 
     private float range = 0;
+    #endregion
 
+    #region Sound
     [Tooltip("The sound played when hitting something")]
     [SerializeField] private AudioClip hitSound;
 
     [Range(0.0f, 1.0f)]
     [Tooltip("Hit sound volume")]
     [SerializeField] private float hitSoundVolume = 1.0f;
+    #endregion
+
+    [Tooltip("The vfx spawned at the location that this projectile hits")]
+    [SerializeField] private GameObject hitVFX;
 
     private ProjectileMovementPattern movementPattern;
     #endregion
@@ -52,6 +59,16 @@ public class Projectile : MonoBehaviour
     {
         this.range = range;
         this.damage = damage;
+        this.ignoreTag = ignoreTag;
+        movementPattern = GetComponent<ProjectileMovementPattern>();
+    }
+
+    public void Initialize(float range, int damage, float bulletSpeed, string ignoreTag = "Player")
+    {
+        this.range = range;
+        this.damage = damage;
+        speed = bulletSpeed;
+
         this.ignoreTag = ignoreTag;
         movementPattern = GetComponent<ProjectileMovementPattern>();
     }
@@ -81,10 +98,24 @@ public class Projectile : MonoBehaviour
     {
         if(!ShouldIgnore(collision.gameObject) && collision.gameObject.TryGetComponent(out Damageable damageable))
         {
-            SoundManager.PlaySound(hitSound, hitSoundVolume, transform.position);
-            damageable.UpdateHealth(damage);
+            HitEvent(damageable);
             StartCoroutine(DestructionEvent());
         }
+    }
+
+    private void HitEvent(Damageable damageable)
+    {
+        SpawnHitVFX();
+        SoundManager.PlaySound(hitSound, hitSoundVolume, transform.position);
+        damageable.UpdateHealth(damage);
+    }
+
+    private void SpawnHitVFX()
+    {
+        if (hitVFX == null) return;
+
+        var tempHitVFX = Instantiate(hitVFX, transform.position, Quaternion.identity);
+        Destroy(tempHitVFX, 2.0f);
     }
 
     protected bool ShouldIgnore(GameObject obj)
