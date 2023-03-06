@@ -44,7 +44,7 @@ public class PlayerWeaponController : MonoBehaviour
     /// <summary>
     /// Handles initilization of components and other fields before anything else.
     /// </summary>
-    private void Awake()
+    private void Start()
     {
         weapons[0].SwapToFrom(true);
     }
