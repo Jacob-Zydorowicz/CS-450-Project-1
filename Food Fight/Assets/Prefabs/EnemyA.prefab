@@ -245,7 +245,7 @@ MonoBehaviour:
   movementSpeed: 3
   lineOfSite: 20
   shootingRange: 7
-  fireRate: 1
+  fireRate: 1.5
   projectile: {fileID: 8064598491234256359, guid: fe9a3f47c6e05994e9ad218fc85b4121, type: 3}
   projectileParent: {fileID: 25455863579749232}
 --- !u!50 &3971460379427261785

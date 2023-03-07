@@ -330,11 +330,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: e64d2d15cd79bc744a2bed6c23662ab3, type: 3}
   destructionSoundVolume: 1
   projectileRange: 10
-  damage: 10
+  damage: 15
   movementSpeed: 3
   lineOfSite: 15
   shootingRange: 5
-  fireRate: 1
+  fireRate: 2.5
   projectile: {fileID: 8064598491234256359, guid: 0ee092ac120e214408834421f81694c2, type: 3}
   projectileParent: {fileID: 1355172619426521943}
 --- !u!50 &816581214515147849
